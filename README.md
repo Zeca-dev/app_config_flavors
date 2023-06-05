@@ -87,6 +87,22 @@ android {
         ...
         resValue "string", "app_name", dartEnvironmentVariables.APP_NAME
     }
+
+    buildTypes {
+        release {
+            ...
+            signingConfig signingConfigs.debug
+        }
+
+        applicationVariants.all{ variant ->            
+                variant.outputs.all{                    
+                    outputFileName = "${dartEnvironmentVariables.SYSTEM_CODE}-${dartEnvironmentVariables.APP_NAME}${dartEnvironmentVariables.SUFFIX_NAME}-${variant.name}-v${variant.versionName}-b${variant.versionCode}.apk"       
+                        
+                }
+            
+       }
+    }
+
     ...
  }
 
