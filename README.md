@@ -7,9 +7,47 @@ A new Flutter project.
 Gerar build usando dart-define
 
 #Android
-flutter build apk --dart-define-from-file=env.desenvolvimento.json --debug 
+Adicionar o script abaixo no build.gradle (app):
+
+def dartEnvironmentVariables = [
+    APP_NAME: 'app_config_flavors',
+    SUFFIX_NAME: null
+];
+
+if (project.hasProperty('dart-defines')) {
+    dartEnvironmentVariables = dartEnvironmentVariables + project.property('dart-defines')
+            .split(',')
+            .collectEntries { entry ->
+                def pair = new String(entry.decodeBase64(), 'UTF-8').split('=')
+                [(pair.first()): pair.last()]
+            }
+}
+
+Para gerar o arquivo apk ou bundle:
+
+flutter build apk --dart-define-from-file=env.desenvolvimento.json --debug
+
+
 #IOS
+Adicionar o script abaixo no Pré-actions do Runner
+
+function entry_decode() { echo "${*}" | base64 --decode; }
+
+IFS=',' read -r -a define_items <<< "$DART_DEFINES"
+
+
+for index in "${!define_items[@]}"
+do
+    define_items[$index]=$(entry_decode "${define_items[$index]}");
+done
+
+printf "%s\n" "${define_items[@]}"|grep '^' > ${SRCROOT}/Flutter/Define.xcconfig
+
+Para gerar o arquivo ipa:
+
 flutter build ipa --dart-define-from-file=env.desenvolvimento.json
+
+
 
 This project is a starting point for a Flutter application.
 
