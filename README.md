@@ -2,7 +2,7 @@
 
 Exemplo de como configurar Flavors utilizando dart-defines.
 
-## Gerar build usando dart-define
+## Gerar build usando dart-define-from-file
 
 Passos:
 
@@ -43,6 +43,7 @@ SSO=https://sso_url_desenvolvimento
 ```
 
 4. No arquivo **info.plist** adicionar as seguintes variáveis de ambiente:
+
 ````
 <key>CFBundleDisplayName</key>
 <string>$(APP_NAME)</string>
@@ -55,8 +56,6 @@ SSO=https://sso_url_desenvolvimento
 
 
 ````
-
-
 
 **Configuração Android**
 
@@ -106,9 +105,10 @@ android {
     ...
  }
 
- //No arquivo Manifest..
+ //No arquivo Manifest adicionar
  <application
-        android:label="@string/app_name"
+    ...
+    android:label="@string/app_name"
 
 ```
 
@@ -119,9 +119,19 @@ Para gerar o arquivo apk ou bundle:
 
 **Configuração IOS**
 
-Adicionar o script abaixo no Pré-actions do Runner
+Abrir o XCode e adicionar o script abaixo no Pré-actions do Runner:
+
+### Edit Schema
+![Alt text](edit_schema.png)
+### Pré-actions
+![Alt text](Pré-actions.png)
+### Build Script
+![Alt text](Build-script.png)
+
 
 ```
+//Este script irá ler as variáveis de ambiente e adiciná-las no arquivo Define-xcconfig.
+
 function entry_decode() { echo "${*}" | base64 --decode; }
 
 IFS=',' read -r -a define_items <<< "$DART_DEFINES"
@@ -133,26 +143,21 @@ do
 done
 
 printf "%s\n" "${define_items[@]}"|grep '^' > ${SRCROOT}/Flutter/Define.xcconfig
+
 ```
 
-### Edit Schema
-![Alt text](edit_schema.png)
-### Pré-actions
-![Alt text](Pré-actions.png)
-### Build Script
-![Alt text](Build-script.png)
-
-Para gerar o arquivo ipa:
+Para gerar o arquivo ipa (Necessário ter configuração na AppStore):
 
 **flutter build ipa --dart-define-from-file=env.desenvolvimento.json**
 
 
 ### Configuração VSCode (opcional)
 
-No VSCode precisamos definir o **launch.json** que irá facilitar a escolha dos ambientes.
+No VSCode precisamos definir o **launch.json** para facilitar a escolha dos ambientes.
 
 ### VSCode ambientes
 ![Alt text](vscode-ambientes.png)
+
 
 ````
 "configurations": [
