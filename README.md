@@ -25,10 +25,10 @@ if (project.hasProperty('dart-defines')) {
 
 Para gerar o arquivo apk ou bundle:
 
-### flutter build apk --dart-define-from-file=env.desenvolvimento.json --debug
+ flutter build apk --dart-define-from-file=env.desenvolvimento.json --debug
 
 
-### IOS
+** IOS **
 Adicionar o script abaixo no Pré-actions do Runner
 
 function entry_decode() { echo "${*}" | base64 --decode; }
