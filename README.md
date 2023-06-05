@@ -6,7 +6,7 @@ Exemplo de como configurar Flavors utilizando dart-defines.
 
 Passos:
 
-1. criar o arquivo de env.seuAmbiente.json:
+1. Criar o arquivo de env.seuAmbiente.json na raíz do seu projeto:
 
 ```
 {
@@ -18,7 +18,7 @@ Passos:
 }
 
 ```
-2. Criar os arquivos:
+2. Criar os arquivos abaixo na pasta ios/Flutter/:
 
 **Define-default.xcconfig**
 
@@ -41,6 +41,21 @@ SSO=https://sso_url_desenvolvimento
 #include "Define.xcconfig"
 
 ```
+
+4. No arquivo **info.plist** adicionar as seguintes variáveis de ambiente:
+````
+<key>CFBundleDisplayName</key>
+<string>$(APP_NAME)</string>
+
+<key>CFBundleIdentifier</key>
+<string>$(PRODUCT_BUNDLE_IDENTIFIER)$(SUFFIX_NAME)</string>
+
+<key>CFBundleName</key>
+<string>$(APP_NAME)</string>
+
+
+````
+
 
 
 **Configuração Android**
