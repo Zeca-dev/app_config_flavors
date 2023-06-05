@@ -27,7 +27,20 @@ if (project.hasProperty('dart-defines')) {
             }
 }
 
-android { }
+android {
+    ...
+    defaultConfig {
+        
+        applicationIdSuffix dartEnvironmentVariables.SUFFIX_NAME
+        ...
+        resValue "string", "app_name", dartEnvironmentVariables.APP_NAME
+    }
+    ...
+ }
+
+ //No arquivo Manifest..
+ <application
+        android:label="@string/app_name"
 
 ```
 
