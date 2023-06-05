@@ -43,6 +43,9 @@ done
 
 printf "%s\n" "${define_items[@]}"|grep '^' > ${SRCROOT}/Flutter/Define.xcconfig
 
+## Edit Schema
+![Alt text](edit_schema.png)
+![Alt text](edit_schema.png?raw=true "Edit Schema")
 ![Alt text](edit_schema.png?raw=true "Edit Schema")
 
 Para gerar o arquivo ipa:
