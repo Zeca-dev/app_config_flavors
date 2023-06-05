@@ -4,12 +4,13 @@ Exemplo de como configurar Flavors utilizando dart-defines.
 
 ## Getting Started
 
-## Gerar build usando dart-define
+### Gerar build usando dart-define
 
 **Android**
 
 Adicionar o script abaixo no build.gradle (app):
 
+```
 def dartEnvironmentVariables = [
     APP_NAME: 'app_config_flavors',
     SUFFIX_NAME: null
@@ -23,6 +24,7 @@ if (project.hasProperty('dart-defines')) {
                 [(pair.first()): pair.last()]
             }
 }
+```
 
 Para gerar o arquivo apk ou bundle:
 
@@ -33,6 +35,7 @@ Para gerar o arquivo apk ou bundle:
 
 Adicionar o script abaixo no Pré-actions do Runner
 
+```
 function entry_decode() { echo "${*}" | base64 --decode; }
 
 IFS=',' read -r -a define_items <<< "$DART_DEFINES"
@@ -44,6 +47,7 @@ do
 done
 
 printf "%s\n" "${define_items[@]}"|grep '^' > ${SRCROOT}/Flutter/Define.xcconfig
+```
 
 ### Edit Schema
 ![Alt text](edit_schema.png)
