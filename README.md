@@ -57,7 +57,7 @@ SSO=https://sso_url_desenvolvimento
 
 ````
 
-**Configuração Android**
+### Configuração Android
 
 Adicionar o script abaixo no build.gradle (app):
 
@@ -117,15 +117,15 @@ Para gerar o arquivo apk ou bundle:
  **flutter build apk --dart-define-from-file=env.desenvolvimento.json --debug**
 
 
-**Configuração IOS**
+### Configuração IOS
 
 Abrir o XCode e adicionar o script abaixo no Pré-actions do Runner:
 
-### Edit Schema
+**Edit Schema**
 ![Alt text](edit_schema.png)
-### Pré-actions
+**Pré-actions**
 ![Alt text](Pré-actions.png)
-### Build Script
+**Build Script**
 ![Alt text](Build-script.png)
 
 
