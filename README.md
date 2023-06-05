@@ -2,12 +2,12 @@
 
 Exemplo de como configurar Flavors utilizando dart-defines.
 
-## Getting Started
+## Gerar build usando dart-define
 
-### Gerar build usando dart-define
+Passos:
 
-É necessário:
 1. criar o arquivo de env.seuAmbiente.json:
+
 ```
 {
     "SYSTEM_CODE": "sXXX",
@@ -28,10 +28,12 @@ BASE_URL=https://ambiente_desenvolvimento.br
 SSO=https://sso_url_desenvolvimento
 
 ````
-**Define-xcconfig** (este podemos deixar vazio pois será preenchido dinamicamente)
+**Define-xcconfig** 
+
+(este podemos deixar vazio pois será preenchido dinamicamente)
 
 
-3. Acrescentar os includes dos arquivos criados em Debug.xcconfig e Relase.xcconfig
+3. Acrescentar os includes dos arquivos criados em **Debug.xcconfig** e **Relase.xcconfig**.
 
 ```
 #include "Define-default.xcconfig"
