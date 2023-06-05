@@ -19,6 +19,7 @@ Passos:
 
 ```
 2. Criar os arquivos:
+
 **Define-default.xcconfig**
 
 ````
@@ -30,7 +31,7 @@ SSO=https://sso_url_desenvolvimento
 ````
 **Define-xcconfig** 
 
-(este podemos deixar vazio pois será preenchido dinamicamente)
+(Podemos deixá-lo vazio pois será preenchido dinamicamente por um script)
 
 
 3. Acrescentar os includes dos arquivos criados em **Debug.xcconfig** e **Relase.xcconfig**.
@@ -42,7 +43,7 @@ SSO=https://sso_url_desenvolvimento
 ```
 
 
-**Android**
+**Configuração Android**
 
 Adicionar o script abaixo no build.gradle (app):
 
@@ -85,7 +86,7 @@ Para gerar o arquivo apk ou bundle:
  **flutter build apk --dart-define-from-file=env.desenvolvimento.json --debug**
 
 
-**IOS**
+**Configuração IOS**
 
 Adicionar o script abaixo no Pré-actions do Runner
 
@@ -113,5 +114,57 @@ printf "%s\n" "${define_items[@]}"|grep '^' > ${SRCROOT}/Flutter/Define.xcconfig
 Para gerar o arquivo ipa:
 
 **flutter build ipa --dart-define-from-file=env.desenvolvimento.json**
+
+
+### Configuração VSCode (opcional)
+
+No VSCode precisamos definir o **launch.json** que irá facilitar a escolha dos ambientes.
+
+### VSCode ambientes
+![Alt text](vscode-ambientes.png)
+
+````
+"configurations": [
+        {
+            "name": "Desenvolvimento",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--dart-define-from-file",
+                "env.desenvolvimento.json"
+            ]
+        },
+        {
+            "name": "Homologacao",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--dart-define-from-file",
+                "env.homologacao.json"
+            ]
+        },
+        {
+            "name": "Piloto",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--dart-define-from-file",
+                "env.piloto.json"
+            ]
+        },
+        {
+            "name": "Producao",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release",
+            "args": [
+                "--dart-define-from-file",
+                "env.producao.json"
+            ]
+        }
+    ]
+
+````
+
 
 
