@@ -1,12 +1,12 @@
 # app_config_flavors
 
-A new Flutter project.
+Exemplo de como configurar Flavors utilizando dart-defines.
 
 ## Getting Started
 
-Gerar build usando dart-define
+##Gerar build usando dart-define
 
-#Android
+###Android
 Adicionar o script abaixo no build.gradle (app):
 
 def dartEnvironmentVariables = [
@@ -28,7 +28,7 @@ Para gerar o arquivo apk ou bundle:
 flutter build apk --dart-define-from-file=env.desenvolvimento.json --debug
 
 
-#IOS
+###IOS
 Adicionar o script abaixo no Pré-actions do Runner
 
 function entry_decode() { echo "${*}" | base64 --decode; }
