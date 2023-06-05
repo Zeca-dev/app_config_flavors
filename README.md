@@ -6,6 +6,38 @@ Exemplo de como configurar Flavors utilizando dart-defines.
 
 ### Gerar build usando dart-define
 
+É necessário:
+1. criar o arquivo de env.seuAmbiente.json:
+```
+{
+    "SYSTEM_CODE": "sXXX",
+    "APP_NAME": "appDesenv",
+    "SUFFIX_NAME": ".desenv",
+    "BASE_URL": "https://ambiente_desenvolvimento.br",
+    "SSO": "https://sso_url_desenvolvimento"
+}
+
+```
+2. Criar os arquivos:
+2.1 - Define-default.xcconfig
+````
+APP_NAME=appDesenv
+SUFFIX_NAME=.desenv
+BASE_URL=https://ambiente_desenvolvimento.br
+SSO=https://sso_url_desenvolvimento
+
+```
+Define-xcconfig (este podemos deixar vazio pois será preenchido dinamicamente)
+
+3. Acrescentar os includes dos arquivos criados em Debug.xcconfig e Relase.xcconfig
+```
+#include "Define-default.xcconfig"
+#include "Define.xcconfig"
+
+```
+
+
+
 **Android**
 
 Adicionar o script abaixo no build.gradle (app):
