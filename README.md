@@ -2,6 +2,7 @@
 
 Exemplo de como configurar Flavors utilizando dart-defines.
 
+
 ## Gerar build usando dart-define-from-file
 
 Passos:
@@ -57,6 +58,8 @@ SSO=https://sso_url_desenvolvimento
 
 ````
 
+
+
 ### Configuração Android
 
 Adicionar o script abaixo no build.gradle (app):
@@ -105,6 +108,7 @@ android {
     ...
  }
 
+
  //No arquivo Manifest adicionar
  <application
     ...
@@ -112,9 +116,13 @@ android {
 
 ```
 
+
+
 Para gerar o arquivo apk ou bundle:
 
  **flutter build apk --dart-define-from-file=env.desenvolvimento.json --debug**
+
+
 
 
 ### Configuração IOS
@@ -151,9 +159,13 @@ Para gerar o arquivo ipa (Necessário ter configuração na AppStore):
 **flutter build ipa --dart-define-from-file=env.desenvolvimento.json**
 
 
+
+
+
 ### Configuração VSCode (opcional)
 
 No VSCode precisamos definir o **launch.json** para facilitar a escolha dos ambientes.
+
 
 ### VSCode ambientes
 ![Alt text](vscode-ambientes.png)
