@@ -32,7 +32,7 @@
             ]
         },
         {
-            "name": "Release",
+            "name": "Producao",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release",

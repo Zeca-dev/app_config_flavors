@@ -45,11 +45,9 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              FittedBox(
-                child: Text(
-                  '${Env.appName}${Env.suffixName}',
-                  style: const TextStyle(fontSize: 22),
-                ),
+              Text(
+                '${Env.appName}${Env.suffixName}',
+                style: const TextStyle(fontSize: 22),
               ),
               Text(
                 Env.baseUrl,

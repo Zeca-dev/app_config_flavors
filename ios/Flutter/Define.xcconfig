@@ -1,0 +1,6 @@
+APP_NAME=appDesenv
+SUFFIX_NAME=.desenv
+BASE_URL=https://ambiente_desenvolvimento.br
+SSO=https://sso_url_desenvolvimento
+FLUTTER_WEB_AUTO_DETECT=true
+FLUTTER_WEB_CANVASKIT_URL=https://www.gstatic.com/flutter-canvaskit/2a3401c9bbb5a9a9aec74d4f735d18a9dd3ebf2d/
