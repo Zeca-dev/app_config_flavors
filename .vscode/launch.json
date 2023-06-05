@@ -1,0 +1,45 @@
+{
+    // Use o IntelliSense para saber mais sobre os atributos possíveis.
+    // Focalizar para exibir as descrições dos atributos existentes.
+    // Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Desenvolvimento",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--dart-define-from-file",
+                "env.desenvolvimento.json"
+            ]
+        },
+        {
+            "name": "Homologacao",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--dart-define-from-file",
+                "env.homologacao.json"
+            ]
+        },
+        {
+            "name": "Piloto",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--dart-define-from-file",
+                "env.piloto.json"
+            ]
+        },
+        {
+            "name": "Release",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release",
+            "args": [
+                "--dart-define-from-file",
+                "env.producao.json"
+            ]
+        }
+    ]
+}
