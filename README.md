@@ -11,6 +11,8 @@ Exemplo de como configurar Flavors utilizando dart-defines.
 Adicionar o script abaixo no build.gradle (app):
 
 ```
+apply from: ...
+
 def dartEnvironmentVariables = [
     APP_NAME: 'app_config_flavors',
     SUFFIX_NAME: null
@@ -24,6 +26,9 @@ if (project.hasProperty('dart-defines')) {
                 [(pair.first()): pair.last()]
             }
 }
+
+android { }
+
 ```
 
 Para gerar o arquivo apk ou bundle:
