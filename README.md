@@ -48,7 +48,7 @@ printf "%s\n" "${define_items[@]}"|grep '^' > ${SRCROOT}/Flutter/Define.xcconfig
 ### Pré-actions
 ![Alt text](Pré-actions.png)
 ### Build Script
-![Alt text](Build script.png)
+![Alt text](Build-script.png)
 
 Para gerar o arquivo ipa:
 
