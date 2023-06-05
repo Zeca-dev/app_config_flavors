@@ -4,9 +4,9 @@ Exemplo de como configurar Flavors utilizando dart-defines.
 
 ## Getting Started
 
-##Gerar build usando dart-define
+## Gerar build usando dart-define
 
-###Android
+### Android
 Adicionar o script abaixo no build.gradle (app):
 
 def dartEnvironmentVariables = [
@@ -25,10 +25,10 @@ if (project.hasProperty('dart-defines')) {
 
 Para gerar o arquivo apk ou bundle:
 
-flutter build apk --dart-define-from-file=env.desenvolvimento.json --debug
+### flutter build apk --dart-define-from-file=env.desenvolvimento.json --debug
 
 
-###IOS
+### IOS
 Adicionar o script abaixo no Pré-actions do Runner
 
 function entry_decode() { echo "${*}" | base64 --decode; }
@@ -52,17 +52,6 @@ printf "%s\n" "${define_items[@]}"|grep '^' > ${SRCROOT}/Flutter/Define.xcconfig
 
 Para gerar o arquivo ipa:
 
-flutter build ipa --dart-define-from-file=env.desenvolvimento.json
+### flutter build ipa --dart-define-from-file=env.desenvolvimento.json
 
 
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
