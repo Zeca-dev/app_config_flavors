@@ -43,6 +43,8 @@ done
 
 printf "%s\n" "${define_items[@]}"|grep '^' > ${SRCROOT}/Flutter/Define.xcconfig
 
+![Alt text](edit_schema.png?raw=true "Edit Schema")
+
 Para gerar o arquivo ipa:
 
 flutter build ipa --dart-define-from-file=env.desenvolvimento.json
